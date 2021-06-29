@@ -2,21 +2,25 @@ import classes from './Counter.module.css';
 import {Component} from 'react'
 import { useSelector, useDispatch, connect } from 'react-redux'
 
-/* const Counter = () => {
+import {counterActions} from '../store/counter'
+
+const Counter = () => {
   // dispatches change events
   const dispatch = useDispatch()
 
   // provides state with subscriber
-  const counter = useSelector(state => state.counter)
+  const counter = useSelector(state => state.counter.counter)
 
   const incrementCounterHandler = () => {
     console.log("increment")
-    dispatch({ type: 'IN', payload: 2 })
+    //dispatch({ type: 'IN', payload: 2 })
+    dispatch(counterActions.increment(2)) // internal form { type: SOME_UNIQUE_ID, payload: 2 }
   }
 
   const decrementCounterHandler = () => {
     console.log("decrement")
-    dispatch({ type: 'DE', payload: 1 })
+    //dispatch({ type: 'DE', payload: 1 })
+    dispatch(counterActions.decrement(1)) // internal form { type: SOME_UNIQUE_ID, payload: 1 }
   }
 
   return (
@@ -35,9 +39,9 @@ import { useSelector, useDispatch, connect } from 'react-redux'
   )
 }
 
-export default Counter */
+export default Counter
 
-class Counter extends Component {
+/* class Counter extends Component {
 
   incrementCounterHandler() {
     this.props.increment()
@@ -81,4 +85,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 // connect is used to connect the Class Component to the Redux Store
-export default connect(mapStateToProps, mapDispatchToProps)(Counter)
+export default connect(mapStateToProps, mapDispatchToProps)(Counter) */
